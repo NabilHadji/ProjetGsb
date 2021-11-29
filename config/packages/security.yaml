@@ -55,5 +55,5 @@ security:
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY, methods: [GET, PUT, DELETE, PATCH] }
         - { path: ^/api/motif, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/praticiens, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/Praticiens, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/visites, roles: IS_AUTHENTICATED_FULLY }

@@ -30,17 +30,17 @@ class Visites
     private $vst_commentaire;
 
     /**
-     * @ORM\ManyToOne(targetEntity=praticiens::class, inversedBy="pra_visites")
+     * @ORM\ManyToOne(targetEntity=Praticiens::class, inversedBy="pra_visites")
      */
     private $vst_praticiens;
 
     /**
-     * @ORM\ManyToOne(targetEntity=motif::class, inversedBy="mot_visites")
+     * @ORM\ManyToOne(targetEntity=Motif::class, inversedBy="mot_visites")
      */
     private $vst_motif;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="vst_user")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="vst_user")
      */
     private $vst_visiteur;
 
