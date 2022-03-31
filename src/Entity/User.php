@@ -59,9 +59,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $vst_user;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Praticiens::class)
+     */
+    private $user_praticiens;
+
     public function __construct()
     {
         $this->vst_user = new ArrayCollection();
+        $this->user_praticiens = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -215,6 +221,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $vstUser->setVstVisiteur(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Praticiens[]
+     */
+    public function getUserPraticiens(): Collection
+    {
+        return $this->user_praticiens;
+    }
+
+    public function addUserPraticien(Praticiens $userPraticien): self
+    {
+        if (!$this->user_praticiens->contains($userPraticien)) {
+            $this->user_praticiens[] = $userPraticien;
+        }
+
+        return $this;
+    }
+
+    public function removeUserPraticien(Praticiens $userPraticien): self
+    {
+        $this->user_praticiens->removeElement($userPraticien);
 
         return $this;
     }

@@ -66,6 +66,11 @@ class Praticiens
      */
     private $pra_visites;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $user_praticiens;
+
     public function __construct()
     {
         $this->pra_visites = new ArrayCollection();
@@ -198,6 +203,18 @@ class Praticiens
                 $praVisite->setVstPraticiens(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUserPraticiens(): ?string
+    {
+        return $this->user_praticiens;
+    }
+
+    public function setUserPraticiens(?string $user_praticiens): self
+    {
+        $this->user_praticiens = $user_praticiens;
 
         return $this;
     }
